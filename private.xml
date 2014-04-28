@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<root>
+  <appdef>
+    <appname>JAVA</appname>
+    <equal>net.java.openjdk.cmd</equal>
+  </appdef>
+
+  <appdef>
+    <appname>KEYNOTE</appname>
+    <equal>com.apple.iWork.Keynote</equal>
+  </appdef>
+
+  <appdef>
+    <appname>SCREENSHARING</appname>
+    <equal>com.apple.ScreenSharing</equal>
+  </appdef>
+  
+  <appdef>
+    <appname>VMWINDOW</appname>
+	<prefix>com.vmware.proxyApp.</prefix>
+  </appdef>
+
+  <appdef>
+    <appname>MACVIM</appname>
+    <equal>org.vim.MacVim</equal>
+  </appdef>
+
+  <devicevendordef>
+    <vendorname>APPLE</vendorname>
+    <vendorid>0x05ac</vendorid>
+  </devicevendordef>
+
+  <deviceproductdef>
+    <productname>INTERNAL</productname>
+    <productid>0x0262</productid>
+  </deviceproductdef>
+
+  <item>
+    <name>Ctrl+Space to KANA/EISUU (toggle)</name>
+    <identifier>private.ctrl_space_to_kana_eisuu</identifier>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::VK_JIS_TOGGLE_EISUU_KANA</autogen>
+      <not>EMACS, VIRTUALMACHINE, VMWINDOW, REMOTEDESKTOPCONNECTION, SCREEN_SHARING, X11, JAVA, SCREENSHARING</not>
+    </block>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::SPACE, ModifierFlag::SHIFT_L</autogen>
+      <only>X11</only>
+    </block>
+  </item>
+
+  <item>
+    <!--http://m.designbits.jp/13091710/-->
+    <name>Leave Insert Mode with EISUU (vim keybind apps)</name>
+    <identifier>private.vim_keybind_apps_esc_with_eisuu</identifier>
+    <only>MACVIM</only>
+    <autogen>--KeyToKey-- KeyCode::ESCAPE, KeyCode::ESCAPE, KeyCode::JIS_EISUU</autogen>
+    <autogen>--KeyToKey-- KeyCode::BRACKET_LEFT, VK_CONTROL, KeyCode::BRACKET_LEFT, VK_CONTROL, KeyCode::JIS_EISUU</autogen>
+  </item>
+
+  <item>
+    <name>Super to Ctrl+Space (iTaskbar)</name>
+    <identifier>private.supertoctrlspace</identifier>
+    <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, KeyCode::COMMAND_L, KeyCode::SPACE, ModifierFlag::CONTROL_L</autogen>
+  </item>
+
+  <item>
+    <name>Ctrl to Command in Some Combination</name>
+    <identifier>private.ctrl_to_command</identifier>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::A, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::A, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::S, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::S, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::R, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::R, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::W, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::X, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::Z, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::Y, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::Y, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::T, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::T, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::RETURN, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::RETURN, ModifierFlag::COMMAND_L</autogen>
+      <not>EMACS, TERMINAL, VIRTUALMACHINE, VMWINDOW, REMOTEDESKTOPCONNECTION, SCREEN_SHARING, X11, JAVA, VI, MACVIM, ECLIPSE, SCREENSHARING</not>
+    </block>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::C, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::C, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::V, ModifierFlag::COMMAND_L</autogen>
+      <not>EMACS, TERMINAL, VIRTUALMACHINE, VMWINDOW, REMOTEDESKTOPCONNECTION, SCREEN_SHARING, X11, JAVA, SCREENSHARING</not>
+    </block>
+  </item>
+
+  <item>
+    <name>Single Super Key (Windows Key on 109 Keyboard, Command Key on Internal Keyboard) To LaunchPad</name>
+    <identifier>private.supertof4</identifier>
+    <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, KeyCode::COMMAND_L, KeyCode::LAUNCHPAD</autogen>
+    <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, SCREEN_SHARING, SCREENSHARING</not>
+  </item>
+
+  <item>
+    <name>Single Super Key (Windows Key on 109 Keyboard, Command Key on Internal Keyboard) To Alfred</name>
+    <identifier>private.supertooptionspace</identifier>
+	<block>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, KeyCode::COMMAND_L, KeyCode::SPACE, ModifierFlag::OPTION_L</autogen>
+      <not>VIRTUALMACHINE, VMWINDOW, REMOTEDESKTOPCONNECTION, SCREEN_SHARING, SCREENSHARING</not>
+	</block>
+	<block>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, KeyCode::SPACE, ModifierFlag::OPTION_L</autogen>
+	  <only>VMWINDOW</only>
+	</block>
+  </item>
+
+  <item>
+    <name>Command+F4 to close a window</name>
+    <identifier>private.altf4.command_as_alt</identifier>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::F4, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::W, ModifierFlag::COMMAND_L</autogen>
+      <not>VIRTUALMACHINE, VMWINDOW, REMOTEDESKTOPCONNECTION, SCREEN_SHARING, SAFARI, FIREFOX, GOOGLE_CHROME, ECLIPSE, X11</not>
+    </block>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::F4, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::W, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI, FIREFOX, GOOGLE_CHROME</only>
+    </block>
+    <browser>
+      <autogen>__KeyToKey__ KeyCode::F4, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::Q, ModifierFlag::COMMAND_L</autogen>
+      <only>ECLIPSE</only>
+    </browser>
+    <browser>
+      <autogen>__KeyToKey__ KeyCode::F4, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::F4, ModifierFlag::OPTION_L</autogen>
+      <only>X11, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, SCREEN_SHARING</only>
+    </browser>
+  </item>
+
+  <item>
+    <name>Alt+F4 to close a window</name>
+    <identifier>private.altf4.alt</identifier>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::F4, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::W, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI, FIREFOX, GOOGLE_CHROME, JAVA</only>
+    </block>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::F4, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::Q, ModifierFlag::COMMAND_L</autogen>
+      <only>ECLIPSE</only>
+    </block>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::F4, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::W, ModifierFlag::COMMAND_L</autogen>
+      <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, SCREEN_SHARING, SAFARI, FIREFOX, GOOGLE_CHROME, ECLIPSE, X11, SCREENSHARING</not>
+    </block>
+  </item>
+
+
+  <item>
+     <name>Reverse Horizontal Scroll (not Apple Internal)</name>
+     <identifier essential="true">option.pointing_reverse_horizontal_scrolling</identifier>
+     <device_not>INTERNAL</device_not>
+  </item>
+
+  <item>
+    <name>Reverse Vertical Scroll (not Apple Internal)</name>
+    <identifier essential="true">option.pointing_reverse_vertical_scrolling</identifier>
+    <device_not>INTERNAL</internal>
+  </item>
+
+  <item>
+    <name>PrtScr to Screenshot (If you want to use 109 Keyboard and you do not use F13 key)</name>
+    <identifier>private.prtscr</identifier>
+    <autogen>__KeyToKey__ KeyCode::F13, ModifierFlag::NONE, KeyCode::KEY_3, ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::F13, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::KEY_4, ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_L</autogen>
+  </item>
+
+  <item>
+    <name>Alt(Option) + Cursor (LR) to Command+CursorLR (Browser Back/Forward)</name>
+    <identifier>private.altcursorlr</identifier>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::CURSOR_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::CURSOR_RIGHT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L</autogen>
+      <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, SCREEN_SHARING</not>
+    </block>
+    <block>
+      <autogen>__KeyToKey__ KeyCode::CURSOR_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::CURSOR_RIGHT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L</autogen>
+      <only>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, SCREEN_SHARING</only>
+    </block>
+  </item>
+
+  <item>
+    <name>Use PC Style Home/End</name>
+    <identifier>private.remap.pclikehomeend</identifier>
+    <block>
+      <not>EMACS, TERMINAL, VIRTUALMACHINE, VMWINDOW, REMOTEDESKTOPCONNECTION, SCREEN_SHARING, X11, JAVA, FINDER</not>
+      <autogen>__KeyToKey__ FROMKEYCODE_HOME, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::CURSOR_UP,    ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ FROMKEYCODE_HOME, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_UP,    ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ FROMKEYCODE_END,  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::CURSOR_DOWN,  ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ FROMKEYCODE_END,  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_DOWN,  ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ FROMKEYCODE_HOME,             KeyCode::CURSOR_LEFT,  ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ FROMKEYCODE_END,              KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L</autogen>
+
+      <autogen>__KeyToKey__ KeyCode::CURSOR_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::HOME, ModifierFlag::NONE</autogen>
+      <autogen>__KeyToKey__ KeyCode::CURSOR_RIGHT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::END, ModifierFlag::NONE</autogen>
+      <autogen>__KeyToKey__ KeyCode::CURSOR_UP, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::PAGEUP, ModifierFlag::NONE</autogen>
+      <autogen>__KeyToKey__ KeyCode::CURSOR_DOWN, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::PAGEDOWN, ModifierFlag::NONE</autogen>
+    </block>
+    <block>
+      <only>EMACS, TERMINAL</only>
+      <autogen>__KeyToKey__ FROMKEYCODE_HOME, KeyCode::A, ModifierFlag::CONTROL_L</autogen>
+      <autogen>__KeyToKey__ FROMKEYCODE_END,  KeyCode::E, ModifierFlag::CONTROL_L</autogen>
+    </block>
+  </item>
+
+  <item>
+    <name>F5 to start presentation on Keynote</name>
+    <identifier>private.keynote.f5</identifier>
+    <autogen>__KeyToKey__ KeyCode::F5, ModifierFlag::NONE, KeyCode::P, ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L</autogen>
+    <only>KEYNOTE</only>
+  </item>
+
+</root>
