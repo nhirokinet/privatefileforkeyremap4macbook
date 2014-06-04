@@ -210,4 +210,22 @@
     <only>KEYNOTE</only>
   </item>
 
+  <item>
+    <name>Reverse Vertical &amp; Horizontal Scrolling (Non-Apple Devices)</name>
+    <identifier>private.remap.reverse_both_scrolling</identifier>
+    <autogen>
+      __FlipScrollWheel__
+      Option::FLIPSCROLLWHEEL_HORIZONTAL,
+      Option::FLIPSCROLLWHEEL_VERTICAL,
+    </autogen>
+	<device_not>DeviceVendor::APPLE_INC</device_not>
+  </item>
+
+  <item>
+    <name>Disable Mouse Middle Button</name>
+    <identifier>private.remap.disable_mouse_middle_button</identifier>
+    <autogen>__KeyToKey__ PointingButton::MIDDLE ,KeyCode::VK_NONE</autogen>
+  </item>
+
+
 </root>
